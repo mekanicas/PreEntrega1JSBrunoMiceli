@@ -1,4 +1,4 @@
-const TASA_INTERES_ANUAL = 0.1;
+const TASA_INTERES_ANUAL = 0.1; //Se define la tasa de interés esperada a largo plazo, en este caso un año.
 
 function recomendarInversion() {
   let inversorBucle = true;
@@ -6,7 +6,7 @@ function recomendarInversion() {
   console.log(nombreUsuario);
   alert("Hola que tal " + nombreUsuario);
 
-  // Definir arrays de recomendaciones de inversión y rendimientos esperados
+  // Arrays de recomendaciones de inversión y rendimientos esperados
   const recomendaciones = [
     ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"], // Recomendaciones para inversor agresivo
     ["ETHERUM USDT", "BTC USDT", "USDT USDT"], // Recomendaciones para inversor intermedio
@@ -18,6 +18,29 @@ function recomendarInversion() {
     [4, 4, 2], // Multiplicadores para inversor intermedio
     [5, 5], // Multiplicadores para inversor reservado
   ];
+
+  // Función para buscar y filtrar las recomendaciones y multiplicadores
+  function buscarRecomendacionesYMultiplicadores(tipoInversor) {
+    switch (tipoInversor.toUpperCase()) {
+      case "A":
+        return {
+          recomendaciones: recomendaciones[0],
+          multiplicadores: multiplicadores[0],
+        };
+      case "B":
+        return {
+          recomendaciones: recomendaciones[1],
+          multiplicadores: multiplicadores[1],
+        };
+      case "C":
+        return {
+          recomendaciones: recomendaciones[2],
+          multiplicadores: multiplicadores[2],
+        };
+      default:
+        return null;
+    }
+  }
 
   while (inversorBucle) {
     let tipoDeInversor =
@@ -35,54 +58,31 @@ function recomendarInversion() {
     let resultado10 = datoUsdt * 0.1;
     let rendimientoEsperado = parseInt(resultado10 * TASA_INTERES_ANUAL);
 
-    switch (tipoDeInversor.toUpperCase()) {
-      case "A":
-        alert(
-          `Ya que eres un inversor agresivo desde Miceli's Capital te recomendamos invertir en :
+    // Buscar recomendaciones y multiplicadores según el tipo de inversor
+    const recomendacionYMultiplicador =
+      buscarRecomendacionesYMultiplicadores(tipoDeInversor);
 
-         ⭕ ${recomendaciones[0][0]} ${resultado10 * multiplicadores[0][0]}
-         ⭕ ${recomendaciones[0][1]} ${resultado10 * multiplicadores[0][1]}
-         ⭕ ${recomendaciones[0][2]} ${resultado10 * multiplicadores[0][2]}
-         ⭕ ${recomendaciones[0][3]} ${resultado10 * multiplicadores[0][3]}
-         
-         Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
-         
-         Te deseamos mucha suerte en tu criptocamino`
-        );
-        inversorBucle = false;
-        break;
-      case "B":
-        alert(
-          `Ya que eres un inversor Intermedio desde Miceli's Capital te recomendamos invertir en :
-
-         ⭕ ${recomendaciones[1][0]} ${resultado10 * multiplicadores[1][0]}
-         ⭕ ${recomendaciones[1][1]} ${resultado10 * multiplicadores[1][1]}
-         ⭕ ${recomendaciones[1][2]} ${resultado10 * multiplicadores[1][2]}
-         
-         Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
-         
-         Te deseamos mucha suerte en tu criptocamino`
-        );
-        inversorBucle = false;
-        break;
-      case "C":
-        alert(
-          `Ya que eres un inversor Reservado desde Miceli's Capital te recomendamos invertir en :
-
-         ⭕ ${recomendaciones[2][0]} ${resultado10 * multiplicadores[2][0]}
-         ⭕ ${recomendaciones[2][1]} ${resultado10 * multiplicadores[2][1]}
-         
-         Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
-         
-         Te deseamos mucha suerte en tu criptocamino`
-        );
-        inversorBucle = false;
-        break;
-      default:
-        alert(
-          "Veo que ingresaste un número/letra que no está entre las opciones, te pido que por favor regreses y elijas entre las opciones en pantalla 👍"
-        );
-        break;
+    if (recomendacionYMultiplicador) {
+      const { recomendaciones, multiplicadores } = recomendacionYMultiplicador;
+      alert(
+        `Ya que eres un inversor ${tipoDeInversor} desde Miceli's Capital te recomendamos invertir en :
+  
+  ${recomendaciones
+    .map(
+      (recomendacion, index) =>
+        `⭕${recomendacion} ${resultado10 * multiplicadores[index]}`
+    )
+    .join("\n")}
+  
+  Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
+  
+  Te deseamos mucha suerte en tu criptocamino`
+      );
+      inversorBucle = false;
+    } else {
+      alert(
+        "Veo que ingresaste un número/letra que no está entre las opciones, te pido que por favor regreses y elijas entre las opciones en pantalla 👍"
+      );
     }
   }
 }
