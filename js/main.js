@@ -5,6 +5,20 @@ function recomendarInversion() {
   let nombreUsuario = prompt("Ingrese su nombre");
   console.log(nombreUsuario);
   alert("Hola que tal " + nombreUsuario);
+
+  // Definir arrays de recomendaciones de inversión y rendimientos esperados
+  const recomendaciones = [
+    ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"], // Recomendaciones para inversor agresivo
+    ["ETHERUM USDT", "BTC USDT", "USDT USDT"], // Recomendaciones para inversor intermedio
+    ["BTC USDT", "USDT USDT"], // Recomendaciones para inversor reservado
+  ];
+
+  const multiplicadores = [
+    [5, 3, 1, 1], // Multiplicadores para inversor agresivo
+    [4, 4, 2], // Multiplicadores para inversor intermedio
+    [5, 5], // Multiplicadores para inversor reservado
+  ];
+
   while (inversorBucle) {
     let tipoDeInversor =
       prompt(`¿${nombreUsuario} , qué tipo de inversor se considera?
@@ -26,10 +40,10 @@ function recomendarInversion() {
         alert(
           `Ya que eres un inversor agresivo desde Miceli's Capital te recomendamos invertir en :
 
-         ⭕ Solana USDT ${resultado10 * 5}
-         ⭕ BNB USDT ${resultado10 * 3}
-         ⭕ BTC USDT ${resultado10 * 1}
-         ⭕ USDT USDT ${resultado10 * 1}
+         ⭕ ${recomendaciones[0][0]} ${resultado10 * multiplicadores[0][0]}
+         ⭕ ${recomendaciones[0][1]} ${resultado10 * multiplicadores[0][1]}
+         ⭕ ${recomendaciones[0][2]} ${resultado10 * multiplicadores[0][2]}
+         ⭕ ${recomendaciones[0][3]} ${resultado10 * multiplicadores[0][3]}
          
          Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
          
@@ -41,9 +55,9 @@ function recomendarInversion() {
         alert(
           `Ya que eres un inversor Intermedio desde Miceli's Capital te recomendamos invertir en :
 
-         ⭕ ETHERUM USDT ${resultado10 * 4}
-         ⭕ BTC USDT ${resultado10 * 4}
-         ⭕ USDT USDT ${resultado10 * 2}
+         ⭕ ${recomendaciones[1][0]} ${resultado10 * multiplicadores[1][0]}
+         ⭕ ${recomendaciones[1][1]} ${resultado10 * multiplicadores[1][1]}
+         ⭕ ${recomendaciones[1][2]} ${resultado10 * multiplicadores[1][2]}
          
          Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
          
@@ -55,8 +69,8 @@ function recomendarInversion() {
         alert(
           `Ya que eres un inversor Reservado desde Miceli's Capital te recomendamos invertir en :
 
-         ⭕ BTC USDT ${resultado10 * 5}
-         ⭕ USDT USDT ${resultado10 * 5}
+         ⭕ ${recomendaciones[2][0]} ${resultado10 * multiplicadores[2][0]}
+         ⭕ ${recomendaciones[2][1]} ${resultado10 * multiplicadores[2][1]}
          
          Tu rendimiento esperado anual sería aproximadamente ${rendimientoEsperado} USDT.
          
