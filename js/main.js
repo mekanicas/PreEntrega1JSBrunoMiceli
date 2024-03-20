@@ -87,4 +87,12 @@ function recomendarInversion() {
   }
 }
 
-recomendarInversion();
+document.addEventListener("DOMContentLoaded", function () {
+  recomendarInversion();
+
+  let textoNosotros = document.getElementById("textoNosotros");
+
+  textoNosotros.innerText =
+    "Miceli's Capital es tu puerta de entrada al emocionante mundo de las criptomonedas. Nuestro equipo de expertos está dedicado a hacer crecer tu capital de manera inteligente y estratégica mediante inversiones en criptomonedas. Con años de experiencia en los mercados financieros y un profundo conocimiento del ecosistema criptográfico, estamos aquí para ayudarte a alcanzar tus objetivos financieros.";
+  console.log(textoNosotros.innerText);
+});
