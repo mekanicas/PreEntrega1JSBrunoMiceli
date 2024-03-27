@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarMensajeError("Debe seleccionar todas las opciones");
       return;
     }
+    formulario.style.display = "none";
 
     const tipoInversor = obtenerTipoInversor(selectorDeInversor.value);
     const capitalInversion = obtenerCapitalInversion(selectorDeCapital.value);
