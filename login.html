@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+    </style>
+</head>
+<body>
+<div class="loginPosition">
+    <form class="loginStyle" id="loginForm">
+        <h2>Iniciar Sesión</h2>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</div>
+    <script>
+        // Accedemos al formulario y a los campos de entrada
+        const form = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        // Verificamos si hay un nombre de usuario almacenado en localStorage
+        const storedUsername = localStorage.getItem('username');
+        if (storedUsername) {
+            usernameInput.value = storedUsername; // Si hay un nombre de usuario almacenado, lo establecemos en el campo de entrada
+        }
+        const storedPassword = localStorage.getItem('password');
+        if (storedPassword){
+            passwordInput.value = storedPassword;
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = usernameInput.value;
+            localStorage.setItem('username', username);
+
+            // Redireccionar a index.html después de iniciar sesión
+            window.location.href = 'index.html';
+        });
+
+
+        // Agregamos un evento al formulario para manejar el envío
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenimos el envío del formulario por defecto
+
+            const username = usernameInput.value; // Obtenemos el valor del nombre de usuario
+            const password = passwordInput.value; // Obtenemos el valor del password
+
+            // Guardamos el nombre de usuario en localStorage
+            localStorage.setItem('username', username);
+            localStorage.setItem('password', password);
+
+            console.log('Nombre de usuario:', username);
+            consle.log('Password del usuario', password)
+        });
+    </script>
+</body>
+</html>

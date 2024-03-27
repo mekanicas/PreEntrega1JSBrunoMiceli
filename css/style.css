@@ -45,3 +45,39 @@ header nav .imglogo {
   width: auto;
 }
 
+
+/* Estilos del login  */
+.loginPosition{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+}
+.loginStyle{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+
+}
+.loginStyle 
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.loginStyle input[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+.loginStyle input[type="submit"]:hover {
+  background-color: #45a049;
+}
