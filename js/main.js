@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <input type="submit" value="Enviar">
   `;
 
-  contenedorFormulario.appendChild(formulario);
+  contenedorFormulario.appendChild(formulario); // &&
 
   formulario.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!selectorDeInversor || !selectorDeCapital || !objetivoInversion) {
       mostrarMensajeError("Debe seleccionar todas las opciones");
-      return;
+      return; // set-timeout
     }
     formulario.style.display = "none";
 
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function () {
     switch (tipoInversor.toUpperCase()) {
       case "RESERVADO":
         return {
-          recomendaciones: recomendaciones[2],
+          recomendaciones: recomendaciones[2], //Desestructuración de array
           multiplicadores: multiplicadores[2],
         };
       case "INTERMEDIO":
