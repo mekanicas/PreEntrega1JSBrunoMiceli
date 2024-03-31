@@ -8,9 +8,9 @@
 /* // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900 */
 
-header nav .imglogo {
-  width: 100px;
-  height: auto;
+header nav .imgLogo {
+  height: 70px;
+  width: auto;
 }
 
 .backgroundPrincipal {
@@ -22,6 +22,13 @@ header nav .imglogo {
   background-image: url(../media/backgroundCapital.jpg);
   width: 100%;
   height: 400px;
+}
+
+.TextoLogo {
+  color: #1a5ef0;
+  font-size: 7rem;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 400;
 }
 
 .firstAboutUs h1 {
@@ -41,7 +48,6 @@ header nav .imglogo {
 }
 
 .backgroundTipoDeInversor div img {
-  position: absolute;
   bottom: 0;
   right: 0;
   margin: 10px;
@@ -49,6 +55,10 @@ header nav .imglogo {
 }
 
 /* Estilos del login  */
+#nombreUsuario {
+  font-size: 40px;
+  color: #424242;
+}
 .loginPosition {
   display: flex;
   flex-direction: column;
@@ -67,19 +77,30 @@ header nav .imglogo {
 input[type="password"],
 input[type="submit"] {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
 .loginStyle input[type="submit"] {
-  background-color: #4caf50;
+  background-color: #426aec;
   color: white;
   cursor: pointer;
 }
 .loginStyle input[type="submit"]:hover {
-  background-color: #45a049;
+  background-color: #2b4766;
+  transition: 0.3s;
+}
+
+body.light-mode {
+  background-color: white;
+  color: black;
+}
+
+body.dark-mode {
+  background-color: black;
+  color: white;
 }
 
 .styleForForm {
@@ -93,5 +114,5 @@ input[type="submit"] {
   text-align: justify;
   word-spacing: 5px;
   letter-spacing: 1px;
-  height: 100vh;
+  height: 40vh;
 }

@@ -1,15 +1,27 @@
-const recomendaciones = [
-  ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"],
-  ["ETHERUM USDT", "BTC USDT", "USDT USDT"],
-  ["BTC USDT", "USDT USDT"],
-];
+const nombreUsuario = document.getElementById("nombreUsuario");
+const logoutButtom = document.getElementById("logoutButtom");
 
-// Array que contiene las rutas de las imágenes
-const imagenesInversor = [
-  "./media/inversorReservado.jpg",
-  "./media/inversorIntermedio.jpg",
-  "./media/inversorAgresivo.jpg",
-];
+
+//Implementación de JSON
+const recomendaciones = {
+  reservado: ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"],
+  intermedio: ["ETHERUM USDT", "BTC USDT", "USDT USDT"],
+  agresivo: ["BTC USDT", "USDT USDT"],
+};
+
+const usernamevalue = localStorage.getItem("username");
+nombreUsuario.innerHTML = `¡Hola ${usernamevalue}!`;
+
+logoutButtom.addEventListener("click", () => {
+  localStorage.removeItem("username");
+  localStorage.removeItem("password");
+  window.location.reload();
+});
+
+//Redireccionamiento a el login.html si no esta logueado
+if (!usernamevalue) {
+  window.location.href = "login.html";
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const contenedorFormulario = document.getElementById("contenedorFormulario");
@@ -40,9 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
   contenedorFormulario.appendChild(formulario);
 
-  // Ocultar las imágenes al cargar la página
-  ocultarImagenesInversor();
-
   formulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -59,51 +68,15 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       return;
     }
-
     const tipoInversor = selectorDeInversor.value;
     const mensajePersonalizado = generarMensajePersonalizado(
       tipoInversor,
       capitalInversion,
       objetivoInversion
     );
-
-    ocultarImagenesInversor();
-
     formulario.style.display = "none";
     mostrarMensajePersonalizado(mensajePersonalizado);
-
-    mostrarImagenInversorEnMensaje(tipoInversor);
   });
-
-  function mostrarImagenInversorEnMensaje(tipoInversor) {
-    const index = obtenerIndiceTipoInversor(tipoInversor);
-    const imagen = document.createElement("img");
-    imagen.src = imagenesInversor[index];
-    imagen.alt = tipoInversor;
-    imagen.width = 100;
-    contenedorTexto.appendChild(imagen);
-  }
-
-  function obtenerIndiceTipoInversor(tipoInversor) {
-    switch (tipoInversor) {
-      case "reservado":
-        return 0;
-      case "intermedio":
-        return 1;
-      case "agresivo":
-        return 2;
-      default:
-        return -1;
-    }
-  }
-
-  function ocultarImagenesInversor() {
-    const imagenes = document.querySelectorAll("img");
-    imagenes.forEach((imagen) => {
-      imagen.style.display = "none";
-    });
-  }
-
   function generarMensajePersonalizado(
     tipoInversor,
     capitalInversion,
@@ -134,26 +107,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function obtenerRecomendacion(tipoInversor) {
-    switch (tipoInversor) {
-      case "reservado":
-        return { recomendaciones: recomendaciones[0] };
-      case "intermedio":
-        return { recomendaciones: recomendaciones[1] };
-      case "agresivo":
-        return { recomendaciones: recomendaciones[2] };
-      default:
-        return { recomendaciones: [] };
-    }
+    return { recomendaciones: recomendaciones[tipoInversor] || [] };
   }
-
   function mostrarMensajeError(mensaje) {
     contenedorTexto.innerHTML = `<p style="color: red;">${mensaje}</p>`;
+    contenedorTexto.style.display = "block";
   }
-
   function mostrarMensajePersonalizado(mensaje) {
     contenedorTexto.innerHTML = mensaje;
     contenedorTexto.style.display = "block";
+    contenedorTexto.classList.add("styleForForm");
   }
-  // Estilo para formulario
-  contenedorTexto.classList.add("styleForForm");
 });
