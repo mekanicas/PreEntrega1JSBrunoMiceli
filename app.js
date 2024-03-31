@@ -1,4 +1,4 @@
-const recomendaciones = [
+/* const recomendaciones = [
   ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"],
   ["ETHERUM USDT", "BTC USDT", "USDT USDT"],
   ["BTC USDT", "USDT USDT"],
@@ -109,3 +109,4 @@ document.addEventListener("DOMContentLoaded", function () {
     contenedorTexto.classList.add("styleForForm");
   }
 });
+ */
