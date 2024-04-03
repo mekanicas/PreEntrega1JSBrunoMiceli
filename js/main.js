@@ -1,7 +1,6 @@
 const nombreUsuario = document.getElementById("nombreUsuario");
 const logoutButtom = document.getElementById("logoutButtom");
 
-
 //Implementación de JSON
 const recomendaciones = {
   reservado: ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"],
@@ -46,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function () {
     <input type="number" id="capital_inversion" name="capital_inversion" min="0" step="1">
 
     <h2>3. ¿Cuál es su objetivo de inversión?</h2>
-    <input type="text" id="objetivo_inversion" name="objetivo_inversion" placeholder="Ingrese su objetivo de inversión"><br>
+    <input  type="text" id="objetivo_inversion" name="objetivo_inversion" placeholder="Ingrese su objetivo de inversión"><br>
 
-    <input type="submit" value="Enviar">
+    <input class="mt-4 SubmitButtom" type="submit" value="Enviar">
   `;
   contenedorFormulario.appendChild(formulario);
 

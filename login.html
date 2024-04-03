@@ -9,25 +9,29 @@
     <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./media/miceliscapital.png" type="image/x-icon">
+
 </head>
 
 <body>
     <header>
-        <nav class="navbar bg-body-tertiary">
+        <nav class="navbar bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="./media/miceliscapital.png" alt="Logo" class="d-inline-block imgLogo align-text-top">
                 </a>
-                <button id="toggleMode" type="button" class="btn btn-dark mt-4">Cambiar a modo oscuro</button>
+                <button id="toggleMode" type="button" class="btn btn-dark">
+                    <img id="modoImagen" src="./media/iconos/lamparita-blanca.png" alt="Lamparita de color blanco">
+                </button>
             </div>
         </nav>
     </header>
     <div class="loginPosition">
         <form class="loginStyle" id="loginForm">
             <h2>Iniciar Sesión</h2>
-            <label for="username">Usuario:</label>
+            <label class="usernameColor" for="username">Usuario:</label>
             <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña:</label>
+            <label class="usernameColor" for="password">Contraseña:</label>
             <input type="password" id="password" name="password" required>
             <input type="submit" value="Iniciar Sesión">
         </form>
@@ -75,19 +79,19 @@
         });
         document.getElementById('toggleMode').onclick = function () {
             const body = document.body;
-
             // Alternar clases para cambio de modo
             body.classList.toggle('dark-mode');
             body.classList.toggle('light-mode');
 
-            // Cambiar el texto del botón según el modo
+            // Cambiar la clase del icono según el modo
+            const modoImagen = document.getElementById('modoImagen');
             if (body.classList.contains('dark-mode')) {
-                this.textContent = 'Cambiar a Modo Claro';
+                modoImagen.classList.add('modo-oscuro');
             } else {
-                this.textContent = 'Cambiar a Modo Oscuro';
+                modoImagen.classList.remove('modo-oscuro');
             }
         };
-        // Asegurarse de que se inicia en modo claro
+        // Inicia en modo claro
         document.body.classList.add('light-mode');
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
