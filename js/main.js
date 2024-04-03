@@ -3,9 +3,9 @@ const logoutButtom = document.getElementById("logoutButtom");
 
 //Implementación de JSON
 const recomendaciones = {
-  reservado: ["Solana USDT", "BNB USDT", "BTC USDT", "USDT USDT"],
-  intermedio: ["ETHERUM USDT", "BTC USDT", "USDT USDT"],
-  agresivo: ["BTC USDT", "USDT USDT"],
+  reservado: ["Solana", "BNB", "BTC", "USDT"],
+  intermedio: ["ETHERUM", "BTC", "USDT"],
+  agresivo: ["BTC", "USDT"],
 };
 
 const usernamevalue = localStorage.getItem("username");
