@@ -107,7 +107,7 @@ body.light-mode {
 }
 
 body.dark-mode {
-  background-color: black;
+  background-color: rgb(27, 27, 27);
   color: white;
 }
 
