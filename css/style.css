@@ -222,3 +222,24 @@ body.dark-mode {
   border-color: #007bff;
   outline: none;
 }
+
+/* Estilo para botón de lightweightCharts  */
+
+.lw-attribution {
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          z-index: 3; /* place above the charts */
+          padding: 10px 0px 0px 12px;
+          font-family: "Roboto", sans-serif;
+          font-size: 0.8em;
+}
+    .lw-attribution a {
+          cursor: pointer;
+          color: rgb(54, 116, 217);
+          opacity: 0.8;
+}
+    .lw-attribution a:hover {
+          color: rgb(54, 116, 217);
+          opacity: 1;
+}

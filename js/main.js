@@ -1,16 +1,20 @@
 const nombreUsuario = document.getElementById("nombreUsuario");
 const logoutButtom = document.getElementById("logoutButtom");
 
-document.addEventListener('DOMContentLoaded', function(event){
-  const content = document.querySelector('.content');
-  content.classList.add('hidden')
+document.addEventListener("DOMContentLoaded", function (event) {
+  const content = document.querySelector(".content");
 
-
-setTimeout(function(){
-  const loaderWrapper = document.querySelector('.loader-wrapper');
-  loaderWrapper.style.display = 'none'
-  content.classList.remove('hidden');
-}, 5000);
+  if (content) {
+    content.classList.add("hidden");
+    setTimeout(function () {
+      const loaderWrapper = document.querySelector(".loader-wrapper");
+      if (loaderWrapper) {
+        loaderWrapper.style.display = "none";
+      }
+      content.classList.add("hidden");
+      content.classList.remove("hidden");
+    }, 3000);
+  }
 });
 
 //Implementación de JSON
