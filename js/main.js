@@ -1,3 +1,24 @@
+let url = 'https://api.binance.com/api/v3/ticker/price?symbols=["BTCUSDT","BNBUSDT"]';
+let mostrar_datos = document.getElementById('mostrar_datos');
+
+
+let binanceApi = () => {
+  fetch(url).then((resp) => resp.json()).then(data =>{
+    console.log(data);
+    let datoUno = data[0];
+    let precioUno = parseFloat(datoUno.price).toFixed(2);
+    let datoDos = data[1];
+    let precioDos = parseFloat(datoDos.price).toFixed(2);
+    mostrar_datos.innerHTML = `<h2>${datoUno.symbol}</h2>
+    <h1>${precioUno}</h1>
+    <br>
+    <h2>${datoDos.symbol}</h2>
+    <h1>${precioDos}</h1>`
+  })
+};
+
+window.addEventListener('load', binanceApi);
+
 const nombreUsuario = document.getElementById("nombreUsuario");
 const logoutButtom = document.getElementById("logoutButtom");
 
