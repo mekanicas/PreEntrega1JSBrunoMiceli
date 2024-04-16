@@ -79,8 +79,4 @@ document.addEventListener("DOMContentLoaded", async function () {
       },
     },
   });
-
-  window.addEventListener("resize", () => {
-    chart.resize(window.innerWidth, window.innerHeight);
-  });
 });

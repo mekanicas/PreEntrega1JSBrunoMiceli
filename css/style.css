@@ -225,6 +225,12 @@ body.dark-mode {
 
 /* Estilo para botón de lightweightCharts  */
 
+.lwBtcGraph{
+  position: absolute;
+  max-width: 800px;
+  max-height: 300px;
+}
+
 .lw-attribution {
           position: absolute;
           left: 0px;
