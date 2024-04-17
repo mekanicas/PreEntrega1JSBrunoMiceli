@@ -260,17 +260,17 @@ body.dark-mode {
 
 /* Estilo para botón de lightweightCharts  */
 
-.lwBtcGraph {
-  position: absolute;
+.lwCriptoGraph {
+  margin-top: 50px;
   max-width: 800px;
   max-height: 300px;
 }
 
 .lw-attribution {
-  position: absolute;
+  position: relative;
   left: 0px;
   top: 0px;
-  z-index: 3; /* place above the charts */
+  z-index: 3;
   padding: 10px 0px 0px 12px;
   font-family: "Roboto", sans-serif;
   font-size: 0.8em;
