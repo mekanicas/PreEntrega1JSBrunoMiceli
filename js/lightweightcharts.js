@@ -4,7 +4,7 @@ async function fetchCandlestickData(symbol, interval, limit) {
     const response = await fetch(url);
     const data = await response.json();
     return data.map((kline) => ({
-      time: kline[0] / 1000, // Convert timestamp from milliseconds to seconds
+      time: kline[0] / 1000,
       open: parseFloat(kline[1]),
       high: parseFloat(kline[2]),
       low: parseFloat(kline[3]),
@@ -16,27 +16,24 @@ async function fetchCandlestickData(symbol, interval, limit) {
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-  const chart = LightweightCharts.createChart(
-    document.getElementById("container"),
-    {
-      layout: {
-        backgroundColor: "#222",
-        textColor: "#DDD",
+  const chartContainer = document.getElementById("container");
+  const chart = LightweightCharts.createChart(chartContainer, {
+    layout: {
+      backgroundColor: "#222",
+      textColor: "#DDD",
+    },
+    grid: {
+      vertLines: {
+        color: "#444",
       },
-      grid: {
-        vertLines: {
-          color: "#444",
-        },
-        horzLines: {
-          color: "#444",
-        },
+      horzLines: {
+        color: "#444",
       },
-      width: 800,
-      height: 300,
-    }
-  );
+    },
+    width: 1000,
+    height: 500,
+  });
 
-  const candleStickData = await fetchCandlestickData("BTCUSDT", "1h", 100);
   const mainSeries = chart.addCandlestickSeries({
     wickUpColor: "rgb(54, 116, 217)",
     upColor: "rgb(54, 116, 217)",
@@ -44,12 +41,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     downColor: "rgb(225, 50, 85)",
     borderVisible: false,
   });
-  mainSeries.setData(candleStickData);
-
-  const lineData = candleStickData.map((datapoint) => ({
-    time: datapoint.time,
-    value: (datapoint.close + datapoint.open) / 2,
-  }));
 
   const areaSeries = chart.addAreaSeries({
     lastValueVisible: false,
@@ -58,7 +49,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     topColor: "rgba(56, 33, 110,0.6)",
     bottomColor: "rgba(56, 33, 110, 0.1)",
   });
-  areaSeries.setData(lineData);
 
   chart.applyOptions({
     crosshair: {
@@ -79,4 +69,36 @@ document.addEventListener("DOMContentLoaded", async function () {
       },
     },
   });
+
+  let symbols = ["BTCUSDT", "ETHUSDT", "SOLUSDT", "BNBUSDT"];
+  let currentIndex = 0;
+
+  async function switchChart() {
+    const symbol = symbols[currentIndex];
+    document.getElementById("chartLabel").innerText = symbol.replace(
+      "USDT",
+      "/USDT"
+    );
+    const candleStickData = await fetchCandlestickData(symbol, "1h", 100);
+    mainSeries.setData(candleStickData);
+
+    const lineData = candleStickData.map((datapoint) => ({
+      time: datapoint.time,
+      value: (datapoint.close + datapoint.open) / 2,
+    }));
+    areaSeries.setData(lineData);
+  }
+
+  document.getElementById("nextChart").addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % symbols.length;
+    switchChart();
+  });
+
+  document.getElementById("prevChart").addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + symbols.length) % symbols.length;
+    switchChart();
+  });
+
+  // Inicializar con BTC
+  switchChart();
 });
