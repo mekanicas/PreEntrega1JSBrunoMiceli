@@ -1,0 +1,8 @@
+{
+  "criptos": [
+    { "BTC": "BTCUSDT" },
+    { "ETH": "ETHUSDT" },
+    { "SOL": "SOLUSDT" },
+    { "BNB": "BNBUSDT" }
+  ]
+}

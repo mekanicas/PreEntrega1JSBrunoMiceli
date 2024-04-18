@@ -1,12 +1,10 @@
-let url =
-  'https://api.binance.com/api/v3/ticker/price?symbols=["BTCUSDT","BNBUSDT","SOLUSDT","ETHUSDT"]';
+let url = `https://api.binance.com/api/v3/ticker/price?symbols=["BTCUSDT","BNBUSDT","SOLUSDT","ETHUSDT"]`;
 let mostrar_datos = document.getElementById("mostrar_datos");
 
 let binanceApi = () => {
   fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
-      console.log(data);
       let datoUno = data[0];
       let precioUno = parseFloat(datoUno.price).toFixed(2);
       let datoDos = data[1];
