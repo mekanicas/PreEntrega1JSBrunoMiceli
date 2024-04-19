@@ -13,15 +13,45 @@ header nav .imgLogo {
   width: auto;
 }
 
-.backgroundPrincipal {
+.hero{
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(rgba(12,3,51,0.3), rgba(12,3,51,0.3));
+  position: relative;
+  padding: 0 5%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(../media/TipoDeInversor.jpg);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(rgba(12,3,51,0.8), rgba(12,3,51,0.8));
+  z-index: 0;
+}
+
+.back-video{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 650px;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+@media (max-aspect-ratio: 16/9){
+  .back-video{
+    width: auto;
+    height: 100%;
+  }
 }
 
 .backgroundGraficos {
@@ -64,6 +94,9 @@ header nav .imgLogo {
   padding-left: 10px;
 }
 
+.contenidoBackground{
+  z-index: 2;
+}
 
 .TextoLogo {
   color: #ffffff;
@@ -73,20 +106,55 @@ header nav .imgLogo {
   font-weight: 400;
 }
 .textoLogoSub {
-  color: #ff3c00;
+  color: #484ead;
   text-align: center;
   font-size: 3rem;
   font-family: "Roboto Condensed", sans-serif;
   font-weight: 500;
 }
-.textoP {
+
+.texto-animado {
+  font-family: "Archivo Black", sans-serif;
+  min-width: 260px;
   color: #ffffff;
   text-align: center;
   align-self: center;
   font-size: 1.5rem;
-  font-family: "Archivo Black", sans-serif;
   font-weight: 200;
 }
+
+.texto-animado span {
+  position: relative;
+  animation: cursor .8s infinite;
+}
+
+.texto-animado span::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #2f3542;
+  border-left: 2px solid #ff7f50;
+  right: 0;
+  animation: typing 2s steps(30, end) infinite;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 2px solid transparent;
+  }
+}
+
+@keyframes typing {
+  50% {
+    width: 0;
+    border: none;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 
 .firstAboutUs h1 {
   font-weight: 500;

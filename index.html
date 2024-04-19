@@ -34,13 +34,18 @@
     </header>
     <main>
         <div id="mostrar_datos"></div>
-        <div class="backgroundPrincipal">
-            <div class="d-flex align-items-start flex-column text-center">
+        <div class="hero">
+            <div class="d-flex align-items-start flex-column text-center contenidoBackground">
                 <h1 class="TextoLogo ">Miceli's capital</h1>
                 <h2 class="textoLogoSub">A UN PASO DEL EXITO</h2>
-                <p class="textoP mt-3">Criptomonedas</p>
-                <button type="button" class="btn btn-primary btn-lg ">Empezá a tradear hoy</button>
+                <div class="texto-animado m-4">
+                    Tradéa con <span id="animatedText"></span>
+                </div>
+                <button type="button" class="btn btn-light">Empezá a tradear hoy</button>
             </div>
+            <video autoplay loop muted plays-inline class="back-video">
+                <source src="./media/videoIndex.mp4" type="video/mp4"
+            </video>
         </div>
         <div class="backgroundGraficos">
             <div>

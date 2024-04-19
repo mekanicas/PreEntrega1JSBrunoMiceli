@@ -1,8 +1,3 @@
 {
-  "criptos": [
-    { "BTC": "BTCUSDT" },
-    { "ETH": "ETHUSDT" },
-    { "SOL": "SOLUSDT" },
-    { "BNB": "BNBUSDT" }
-  ]
+  "cryptocurrencies": ["Bitcoin", "Ethereum", "Solana", "Binance Coin", "Polygon"]
 }
