@@ -33,25 +33,25 @@ let binanceApi = () => {
 
 window.addEventListener("load", binanceApi);
 
-fetch('pares.JSON')
-.then(response => response.json())
-.then(data => {
+fetch("pares.JSON")
+  .then((response) => response.json())
+  .then((data) => {
     const words = data.cryptocurrencies;
-    const elem = document.getElementById('animatedText');
+    const elem = document.getElementById("animatedText");
     let currentIndex = 0;
 
     function changeWord() {
-        elem.textContent = words[currentIndex];
-        currentIndex = (currentIndex + 1) % words.length; 
+      elem.textContent = words[currentIndex];
+      currentIndex = (currentIndex + 1) % words.length;
     }
 
     changeWord();
     setInterval(changeWord, 6000);
-})
-.catch(error => {
-    console.error('Error loading the JSON data:', error);
-    document.getElementById('animatedText').textContent = 'Error loading data';
-});
+  })
+  .catch((error) => {
+    console.error("Error loading the JSON data:", error);
+    document.getElementById("animatedText").textContent = "Error loading data";
+  });
 
 const nombreUsuario = document.getElementById("nombreUsuario");
 const logoutButtom = document.getElementById("logoutButtom");
@@ -189,3 +189,20 @@ document.addEventListener("DOMContentLoaded", function () {
     contenedorTexto.classList.add("styleForForm");
   }
 });
+
+const formulario = document.querySelector("#formularioContacto");
+const formContainer = document.querySelector("#form-container");
+const successMessage = document.querySelector("#success-message");
+
+const procesaTodo = (event) => {
+  event.preventDefault();
+  const datos = new FormData(event.target);
+  const datosCompletos = Object.fromEntries(datos.entries());
+
+  localStorage.setItem("formData", JSON.stringify(datosCompletos));
+
+  formContainer.classList.add("hidden");
+  successMessage.classList.remove("hidden");
+};
+
+formulario.addEventListener("submit", procesaTodo);

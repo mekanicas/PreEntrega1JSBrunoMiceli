@@ -44,13 +44,12 @@
                 <button type="button" class="btn btn-light">Empezá a tradear hoy</button>
             </div>
             <video autoplay loop muted plays-inline class="back-video">
-                <source src="./media/videoIndex.mp4" type="video/mp4"
-            </video>
+                <source src="./media/videoIndex.mp4" type="video/mp4" </video>
         </div>
         <div class="backgroundGraficos">
             <div>
                 <h1 class="text-start m-5">ESCALÁ TUS INVERSIONES</h1>
-                    <a href="./graficos.html" class="botonGraficos-link">Gráficos</a>
+                <a href="./graficos.html" class="botonGraficos-link">Gráficos</a>
             </div>
         </div>
         <div class="firstAboutUs container text-center">
@@ -81,6 +80,29 @@
             <div class="imagenBTC">
                 <img src="./media/imagenBTC.png" alt="Imagen de bitcoin">
             </div>
+        </div>
+        <div class="mt-5" id="form-container">
+            <form id="formularioContacto">
+                <div class="mb-3">
+                    <label for="email" class="form-label">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="nombre@ejemplo.com"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="nombre" placeholder="Ingresa tu nombre"
+                        required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="phone" name="telefono" placeholder="Ingresa tu teléfono"
+                        required>
+                </div>
+                <button type="submit" class="btn btn-dark">Enviar Mensaje</button>
+            </form>
+        </div>
+        <div id="success-message" class="hidden hiddenStyle mt-5 fs-2">
+            ¡Formulario enviado con éxito!
         </div>
     </main>
     <footer class="bg-dark text-white footerMicelis">
