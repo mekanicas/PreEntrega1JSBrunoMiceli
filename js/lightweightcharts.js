@@ -1,24 +1,3 @@
-/* let datosPares;
-fetch("../pares.JSON")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    handleData(data);
-  })
-  .catch((error) => {
-    console.error("There was a problem fetching the JSON file:", error);
-  });
-
-function handleData(data) {
-  datosPares = data;
-  console.log(datosPares.criptos[1].ETH);
-  console.log(`"${datosPares.criptos[1].ETH}"`);
-} */
-
 async function fetchCandlestickData(symbol, interval, limit) {
   const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
   try {
@@ -120,6 +99,5 @@ document.addEventListener("DOMContentLoaded", async function () {
     switchChart();
   });
 
-  // Inicializar con BTC
   switchChart();
 });

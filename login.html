@@ -46,15 +46,13 @@
     </main>
     <script>
 
-        // Accedemos al formulacampos de entrada
         const form = document.getElementById('loginForm');
         const usernameInput = document.getElementById('username');
         const passwordInput = document.getElementById('password');
 
-        // Verificamos si hay un nombre de usuario almacenado en localStorage
         const storedUsername = localStorage.getItem('username');
         if (storedUsername) {
-            usernameInput.value = storedUsername; // Si hay un nombre de usuario almacenado, lo establecemos en el campo de entrada
+            usernameInput.value = storedUsername;
         }
         const storedPassword = localStorage.getItem('password');
         if (storedPassword) {
@@ -67,19 +65,17 @@
             const username = usernameInput.value;
             localStorage.setItem('username', username);
 
-            // Redireccionar a index.html después de iniciar sesión
             window.location.href = 'index.html';
         });
 
 
-        // Agregamos un evento al formulario para manejar el envío
         form.addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevenimos el envío del formulario por defecto
+            event.preventDefault();
 
-            const username = usernameInput.value; // Obtenemos el valor del nombre de usuario
-            const password = passwordInput.value; // Obtenemos el valor del password
+            const username = usernameInput.value; 
+            const password = passwordInput.value; 
 
-            // Guardamos el nombre de usuario en localStorage
+
             localStorage.setItem('username', username);
             localStorage.setItem('password', password);
 
@@ -88,11 +84,11 @@
         });
         document.getElementById('toggleMode').onclick = function () {
             const body = document.body;
-            // Alternar clases para cambio de modo
+
             body.classList.toggle('dark-mode');
             body.classList.toggle('light-mode');
 
-            // Cambiar la clase del icono según el modo
+
             const modoImagen = document.getElementById('modoImagen');
             if (body.classList.contains('dark-mode')) {
                 modoImagen.classList.add('modo-oscuro');
@@ -100,9 +96,9 @@
                 modoImagen.classList.remove('modo-oscuro');
             }
         };
-        // Inicia en modo claro
+
         document.body.classList.add('light-mode');
-        // Añadiendo sweet alert
+
         passwordInput.addEventListener('invalid', function (event) {
             let alertaPersonalizada = Swal.fire({
                 title: 'Error!',

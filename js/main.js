@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 
-//Implementación de JSON
 const recomendaciones = {
   reservado: ["Solana", "BNB", "BTC", "USDT"],
   intermedio: ["ETHERUM", "BTC", "USDT"],
@@ -88,7 +87,6 @@ logoutButtom.addEventListener("click", () => {
   window.location.reload();
 });
 
-//Redireccionamiento a el login.html si no esta logueado
 if (!usernamevalue) {
   window.location.href = "login.html";
 }

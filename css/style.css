@@ -4,10 +4,6 @@
   box-sizing: border-box;
   font-family: "Roboto Condensed", sans-serif;
 }
-
-/* // <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 100 to 900 */
-
 header nav .imgLogo {
   height: 70px;
   width: auto;
@@ -215,7 +211,6 @@ header nav .imgLogo {
   text-align: center;
 }
 
-/* Loader inicio de login */
 
 .loader-wrapper {
   position: fixed;
@@ -252,7 +247,7 @@ header nav .imgLogo {
   font-size: 40px;
   color: #424242;
 }
-/* Estilos del login  */
+
 .loginPosition {
   display: flex;
   flex-direction: column;
@@ -372,7 +367,6 @@ body.dark-mode {
   outline: none;
 }
 
-/* Estilo para botón de lightweightCharts  */
 
 .estiloTextoGraphs h1 {
   font-family: "Archivo Black", sans-serif;
