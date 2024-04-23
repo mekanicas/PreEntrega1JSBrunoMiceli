@@ -185,7 +185,7 @@ header nav .imgLogo {
   justify-content: center;
   max-width: 100%;
   overflow: hidden;
-  background-color: #2b4764;
+  background-color: #d7d7d7;
 }
 .headlineCriptos div {
   padding: 20px;
@@ -206,6 +206,12 @@ header nav .imgLogo {
   display: block;
   padding: 5px 13px 5px 9px;
   min-width: 162px;
+  text-align: center;
+}
+
+.btn-light {
+  height: 5vh;
+  width: 12vw;
   text-align: center;
 }
 

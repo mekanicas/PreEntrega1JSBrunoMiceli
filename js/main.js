@@ -46,7 +46,7 @@ fetch("pares.JSON")
     }
 
     changeWord();
-    setInterval(changeWord, 6000);
+    setInterval(changeWord, 2000);
   })
   .catch((error) => {
     console.error("Error loading the JSON data:", error);
